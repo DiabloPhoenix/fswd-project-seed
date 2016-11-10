@@ -53,6 +53,25 @@ angular.module('fswd.registration', [])
         };
       }
     };
+  }).
+  directive('myMap', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs, ctrl) {
+          var map;
+
+          function initMap() {
+            map = new google.maps.Map(element[0], {
+              center: { lat: 39.2766654, lng: -76.6142658 },
+              zoom: 18,
+              mapTypeId: 'roadmap'
+            });
+          }
+
+          initMap();
+        }
+      }
+
   });
 
 module.exports = angular.module('fswd.registration');
